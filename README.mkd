@@ -1,0 +1,24 @@
+We provide code for the homotopy algorithm introduced in 
+
+P. Garrigues and L. El Ghaoui
+An Homotopy Algorithm for the Lasso with Online Observations,
+to appear in Advances in Neural Information Processing Systems 21 (NIPS 2008). 
+
+The notations are consistent with the notations in the paper.
+We solve l1-penalized least-square:
+    \min_\theta .5*\|X \theta - y\|_2^2 + \mu \|\theta\|_1
+Lasso can be solved using
+    - an interior point method, see lasso_ip
+    - Lars, see lasso_lars
+    - Coordinate descent, see lasso_cd
+In the online setting the solution is updated using the RecLasso algorithm, see reclasso
+
+The function test_reclasso provides a simple test of the homotopy algorithm, and allows to reproduce
+Figure 1 in the paper.
+The function batch_experiment provides a batch experiment that compares RecLasso with Lasso and 
+Coordinate Descent with warm start. It allows to reproduce the results in Figure 2.
+The function adaptive_regularization illustrates the proposed algorithm to select the regularization parameter. 
+It allows to reproduce the results in Figure 3.
+
+We recommend the use of iPython as the python shell
+type "run online_lasso" to get started!
